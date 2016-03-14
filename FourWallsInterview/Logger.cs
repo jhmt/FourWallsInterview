@@ -15,6 +15,7 @@ namespace FourWallsInterview
     /// 
     /// Please refactor this method and provide tests in FourWallsInterview.UnitTests.LoggerTests.LogShould.
     /// 
+    /// 
     /// Hint:
     /// 
     /// public class ConsoleLogger : IMessageLogger {}

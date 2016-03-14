@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FourWallsInterview", "FourW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FourWallsInterview.UnitTests", "FourWallsInterview.UnitTests\FourWallsInterview.UnitTests.csproj", "{80549170-D70F-4710-99EC-190D943FEDF8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root files", "root files", "{5810D8F6-3C04-4E20-B89A-4CEA6BD895B7}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -11,7 +11,7 @@ namespace FourWallsInterview.UnitTests.LoggerTests
     public class LogShould
     {
         /// <summary>
-        /// Please refactor the sut FourWallsInterview.Logger and verify the 
+        /// Please refactor FourWallsInterview.Logger and verify that the 
         /// Log method is being called correctly
         /// </summary>
         [Fact]
