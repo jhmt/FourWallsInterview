@@ -17,13 +17,7 @@ namespace FourWallsInterview.UnitTests.LoggerTests
         [Fact]
         public void Call_Log_with_message()
         {
-            var mockMessageLogger = new Mock<IMessageLogger>();
-
-            var sut = new Logger(mockMessageLogger.Object);
-            
-            sut.Log("appears on console");
-
-            mockMessageLogger.Verify(a => a.Log(It.IsAny<string>()));
+            throw new NotImplementedException();
         }
     }
 }

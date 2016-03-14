@@ -9,11 +9,7 @@ namespace FourWallsInterview
     class Program
     {
         static void Main(string[] args)
-        {
-            //var logger = new Logger();
-
-            //logger.Log("First log message", LogType.Console);
-
+        {   
         }
     }
 

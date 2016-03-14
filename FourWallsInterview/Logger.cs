@@ -6,53 +6,42 @@ using System.Threading.Tasks;
 
 namespace FourWallsInterview
 {
-    ///// <summary>
-    ///// Refactor this method to use the Open Close Principle
-    ///// </summary>
-    //public class Logger
-    //{
-    //    public void Log(string message, LogType logType)
-    //    {
-    //        switch (logType)
-    //        {
-    //            case LogType.Console:
-    //                Console.WriteLine(message);
-    //                break;
-
-    //            case LogType.File:
-    //                // Code to send message to printer
-    //                break;
-    //        }
-    //    }
-    //}
-
-
-    //public enum LogType
-    //{
-    //    Console,
-    //    File
-    //}
-
-
+    /// <summary>
+    /// This class is designed to perform a basic logging function.
+    /// In the future, we might want to expand our logging capabilities. 
+    /// 
+    /// Currently, this class doesn't follow SOLID and would require too much modification to extext. 
+    /// It violates the Open Close Principle. 
+    /// 
+    /// Please refactor this method and provide tests in FourWallsInterview.UnitTests.LoggerTests.LogShould.
+    /// 
+    /// Hint:
+    /// 
+    /// public class ConsoleLogger : IMessageLogger {}
+    /// public class QueueLogger : IMessageLogger {}
+    /// </summary>
     public class Logger
     {
-
-        IMessageLogger _messageLogger;
-
-        public Logger(IMessageLogger messageLogger)
+        public void Log(string message, LogType logType)
         {
-            _messageLogger = messageLogger;
-        }
+            switch (logType)
+            {
+                case LogType.Console:
+                    Console.WriteLine(message);
+                    break;
 
-        public void Log(string message)
-        {
-            _messageLogger.Log(message);
+                case LogType.Queue:
+                    // Code to send message to printer
+                    break;
+            }
         }
     }
 
 
-    public interface IMessageLogger
+    public enum LogType
     {
-        void Log(string message);
+        Console,
+        Queue
     }
+    
 }
