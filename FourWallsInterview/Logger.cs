@@ -23,18 +23,42 @@ namespace FourWallsInterview
     /// </summary>
     public class Logger
     {
-        public void Log(string message, LogType logType)
+        private IMessageLogger _messageLogger;
+        
+        public IMessageLogger MessageLogger
+        {
+            get
+            {
+                return _messageLogger;
+            }
+
+            set
+            {
+                _messageLogger = value;
+            }
+        }
+
+        public Logger() : this(LogType.Console)
+        {
+        }
+
+        public Logger(LogType logType)
         {
             switch (logType)
             {
                 case LogType.Console:
-                    Console.WriteLine(message);
+                    MessageLogger = new ConsoleLogger();
                     break;
 
                 case LogType.Queue:
-                    // Code to send message to printer
+                    MessageLogger = new QueueLogger();
                     break;
             }
+        }
+
+        public void Log(string message)
+        {
+            MessageLogger.Log(message);
         }
     }
 
