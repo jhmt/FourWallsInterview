@@ -14,10 +14,35 @@ namespace FourWallsInterview.UnitTests.LoggerTests
         /// Please refactor FourWallsInterview.Logger and verify that the 
         /// Log method is being called correctly
         /// </summary>
-        [Fact]
-        public void Call_Log_with_message()
+        [Theory, 
+            InlineData("Console test 1", LogType.Console),
+            InlineData("Console test 2", null),
+            InlineData("Queue test", LogType.Queue)]
+        public void Call_Log_with_message(string message, LogType? logType)
         {
-            throw new NotImplementedException();
+            Mock<Logger> mock;
+            Logger logger;
+            if (logType.HasValue)
+            {
+                mock = new Mock<Logger>(logType.Value);
+                logger = mock.Object;
+                switch (logType)
+                {
+                    case LogType.Console:
+                        Assert.IsAssignableFrom(typeof(ConsoleLogger), logger.MessageLogger);
+                        break;
+                    case LogType.Queue:
+                        Assert.IsAssignableFrom(typeof(QueueLogger), logger.MessageLogger);
+                        break;
+                }
+            }
+            else
+            {
+                mock = new Mock<Logger>();
+                logger = mock.Object;
+                Assert.IsAssignableFrom(typeof(ConsoleLogger), logger.MessageLogger);
+            }
+            logger.Log(message);
         }
     }
 }
